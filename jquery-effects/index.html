@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects and Animation</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .d-none {
+        display: none;
+    }
+
+    .d-inline {
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        position: absolute;
+    }
+
+    button {
+        padding: 50px;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    #flip,
+    #panel {
+        padding: 5px;
+        text-align: center;
+        background-color: blue;
+        color: white;
+    }
+
+    #panel {
+        padding: 50px;
+    }
+</style>
+
+<body>
+    <!--
+    <div class="d-inline red"></div>
+    <div class="d-inline blue"></div>
+    <div class="d-inline green"></div>
+
+    <hr>
+
+    -->
+
+    <!--<button id="fadeIn">FadeIn!</button>-->
+    <!--<button id="fadeToggle">Fade Toggle</button>-->
+    <!--<button id="botaoHide">Hide</button>
+    <button id="botaoShow">Show</button>-->
+
+    <!--<div id="flip">Click here to show the panel</div>
+    <div id="panel">Hide panel</div>-->
+
+    <div class="d-inline red"></div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.red').click(function () {
+                $(this).css('background-color', 'blue').slideUp(2000).slideDown(2000);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
