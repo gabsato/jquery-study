@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax with jquery</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Learning AJAX</h1>
+    <div id="test">
+        <p>Initial contents</p>
+    </div>
+
+    <br>
+
+    <button id="botao">Click here to load external contents</button>
+
+    <hr>
+
+    <br><br>
+
+    <input id="cep" type="text" placeholder="Enter your CEP"><br><br>
+    <input id="city" type="text" placeholder="City"><br><br>
+    <input id="uf" type="text" placeholder="UF"><br><br>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#cep').blur(function () {
+                var value = $(this).val();
+
+                $.ajax({
+                    url: "https://viacep.com.br/ws/" + value + "/json/",
+                    type: 'GET',
+                    success: function (datas, status) {
+                        $('#city').val(datas.localidade);
+                        $('#uf').val(datas.uf);
+                    },
+                    error: function () {
+                        alert('Error!');
+                    }
+                })
+
+                // $.get("https://viacep.com.br/ws/" + value + "/json/", function (datas, status) {
+                //     console.log(status);
+                //     if (status == 'success') {
+                //         console.log(datas);
+                //         $('#city').val(datas.localidade);
+                //         $('#uf').val(datas.uf);
+                //     } else {
+                //         alert('Error');
+                //     }
+
+                // });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
