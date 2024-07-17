@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Filter</title>
+</head>
+
+<style>
+    table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    td,
+    th {
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    input {
+        margin-left: 10%;
+        margin-bottom: 1%;
+        padding: 8px;
+    }
+</style>
+
+<body>
+
+    <input type="text" placeholder="Search in charts" id="search">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="MyChart">
+            <tr>
+                <td>Gabriel</td>
+                <td>Sato</td>
+                <td>gabriel@email.com</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>da Silva</td>
+                <td>maria@email.com</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Jquery</td>
+                <td>jsquery@email.com</td>
+            </tr>
+            <tr>
+                <td>Kizyuu</td>
+                <td>Donut</td>
+                <td>donut@email.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <input type="text" placeholder="Search in list" id="search2">
+
+    <ul style="margin-left: 10%;" id="list">
+        <li>Rice</li>
+        <li>Beans</li>
+        <li>Meat</li>
+        <li>Milk</li>
+    </ul>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#search').on('keyup', function () {
+                var value = $(this).val().toLowerCase();
+
+                $('#MyChart tr').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+
+            });
+
+            $('#search2').keyup(function () {
+                var value = $(this).val().toLowerCase();
+
+                $('#list li').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                })
+            })
+        });
+    </script>
+
+</body>
+
+</html>
