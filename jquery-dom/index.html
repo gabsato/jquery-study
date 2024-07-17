@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM using jQuery</title>
+    <style>
+        body {
+            text-align: center;
+
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>jQuery can the manipulate DOM</h1>
+    <h2>DOM = Document Object Model</h2>
+    <p>In other words, it is the tree of elements of our code. The jQuery can dynamically acess and update the contents,
+        the structure and style of document.<br>Everything can be modified, added ou removed using jQuery.</p>
+
+    <input id="text1" type="text" placeholder="Type something">
+    <br><br>
+
+    <a id="link" href="https://google.com.br">Link to Google</a>
+
+
+    <br><br>
+
+    <img style="border: 1px solid black"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/640px-Google_Images_2015_logo.svg.png"
+        alt="" style="width: 200px; height: auto;">
+    <div id="teste">
+
+        <br><br>
+
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+    </div>
+
+    <br><br>
+
+    <button id="botao1">Modify title H1</button><br><br>
+    <button id="botao2">Modify title H2</button><br><br>
+    <button id="botao3">Assign value to input</button><br><br>
+    <button id="botao4">Change the link</button><br><br>
+    <button id="botao5">Change the image</button><br><br>
+    <button id="botao6">Delete title</button><br><br>
+    <button id="botao7">Empty title</button><br><br>
+    <hr>
+    <button id="botao8">Add class CSS</button>
+    <button id="botao9">Remove class CSS</button>
+    <button id="botao10">Toggle class CSS</button>
+    <button id="botao11">Image size</button>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#botao1').click(function () {
+                $('body').prepend(' Added with qQuery');
+            });
+
+            $('#botao2').click(function () {
+                $('h2').html('<b>I´m change the H2</b> with <i>jQuery</i>');
+            });
+
+            $('#botao3').click(function () {
+                $('#text1').val('Gabs');
+            });
+
+            $('#botao4').click(function () {
+                $('#link').text('Go to Programação Web');
+                $('#link').attr('href', 'https://programacaoweb.com.br');
+            });
+
+            $('#botao5').click(function () {
+                $('img').attr('src', 'https://www.keyweo.com/wp-content/uploads/2022/04/google-logo-history.jpg');
+            });
+
+            $('#botao6').click(function () {
+                $('h1').remove();
+            });
+
+            $('#botao7').click(function () {
+                $('#teste').empty();
+            });
+
+            $('#botao8').click(function () {
+                $('#link').addClass('red');
+
+            });
+
+            $('#botao9').click(function () {
+                $('#link').removeClass('red');
+            });
+
+            $('#botao10').click(function () {
+                $('#link').toggleClass('red');
+            });
+
+            $('#botao11').click(function () {
+                $('img').width(512);
+                $('img').height(512);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
